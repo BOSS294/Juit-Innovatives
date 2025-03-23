@@ -211,35 +211,35 @@
   <nav>
     <div class="nav-logo">JUIT INNOVATIVES</div>
     <div class="nav-links">
-      <a href="index.html" class="nav-link" data-page="home">HOME</a>
-      <a href="form.html" class="nav-link" data-page="form">FORM</a>
+      <a href="https://juitinitiatives.online" class="nav-link" data-page="home">HOME</a>
+      <a href="https://juitinitiatives.online/form" class="nav-link" data-page="form">FORM</a>
       <div class="dropdown">
-        <a href="#" class="nav-link" data-page="others">OTHERS</a>
+        <a href="" class="nav-link" data-page="others">OTHERS</a>
         <div class="dropdown-content">
-          <a href="support.html" class="nav-link" data-page="support">Support</a>
-          <a href="credits.html" class="nav-link" data-page="credits">Credits</a>
-          <a href="application.html" class="nav-link" data-page="application">Application</a>
+          <a href="https://juitinitiatives.online/support" class="nav-link" data-page="support">Support</a>
+          <a href="https://juitinitiatives.online/credits" class="nav-link" data-page="credits">Credits</a>
+          <a href="https://juitinitiatives.online/application" class="nav-link" data-page="application">Application</a>
         </div>
       </div>
-      <a href="about.html" class="nav-link" data-page="about">ABOUT US</a>
-      <a href="login.html" class="nav-link" data-page="login">LOGIN</a>
+      <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
+      <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
     </div>
     <div class="hamburger" id="topHamburger">
       <i class="material-icons">menu</i>
     </div>
     <div class="mobile-dropdown" id="mobileDropdown">
 
-      <a href="support.html" class="nav-link" data-page="support">Support</a>
-      <a href="credits.html" class="nav-link" data-page="credits">Credits</a>
-      <a href="application.html" class="nav-link" data-page="application">Application</a>
+      <a href="https://juitinitiatives.online/support" class="nav-link" data-page="support">Support</a>
+      <a href="https://juitinitiatives.online/credits" class="nav-link" data-page="credits">Credits</a>
+      <a href="https://juitinitiatives.online/application" class="nav-link" data-page="application">Application</a>
     </div>
   </nav>
 
   <div class="bottom-nav">
-    <a href="index.html" class="nav-link" data-page="home">HOME</a>
-    <a href="form.html" class="nav-link" data-page="form">FORM</a>
-    <a href="about.html" class="nav-link" data-page="about">ABOUT US</a>
-    <a href="login.html" class="nav-link" data-page="login">LOGIN</a>
+    <a href="https://juitinitiatives.online" class="nav-link" data-page="home">HOME</a>
+    <a href="https://juitinitiatives.online/form" class="nav-link" data-page="form">FORM</a>
+    <a href="https://juitinitiatives.online/about" class="nav-link" data-page="about">ABOUT US</a>
+    <a href="https://juitinitiatives.online/register" class="nav-link" data-page="login">LOGIN</a>
   </div>
 
   <script>

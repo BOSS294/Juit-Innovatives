@@ -175,7 +175,7 @@
         <button type="submit">Login</button>
       </form>
       <div class="login-redirect">
-        Don't have an account? <a href="">Register now</a>
+        Don't have an account? <a href="https://juitinitiatives.online/register">Register now</a>
       </div>
     </div>
   </div>
