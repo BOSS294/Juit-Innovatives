@@ -37,9 +37,9 @@
 class Database {
     private $pdo;
     private $host = 'localhost';
-    private $dbname = '';
-    private $user = '';
-    private $pass = '';
+    private $dbname = 'your_database';
+    private $user = 'your_username';
+    private $pass = 'your_password';
     private $charset = 'utf8mb4';
     private $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
