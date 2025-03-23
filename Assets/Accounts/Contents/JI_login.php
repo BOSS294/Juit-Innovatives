@@ -131,6 +131,21 @@
     .login-right button:active {
       transform: scale(0.98);
     }
+    .login-redirect {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .login-redirect a {
+      color: #03a9f4;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .login-redirect a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -159,6 +174,9 @@
         
         <button type="submit">Login</button>
       </form>
+      <div class="login-redirect">
+        Don't have an account? <a href="">Register now</a>
+      </div>
     </div>
   </div>
 
