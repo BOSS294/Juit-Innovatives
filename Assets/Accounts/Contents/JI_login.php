@@ -192,5 +192,29 @@
         toggleIcon.textContent = "visibility";
       }
     }
+
+
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch('../Processors/login-endpoint.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      showToast(data.message, data.status);
+      if (data.status === 'success') {
+        window.location.href = 'dashboard.html';
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showToast('An unexpected error occurred. Please try again.', 'error');
+    });
+  });
+ 
   </script>
 </body>

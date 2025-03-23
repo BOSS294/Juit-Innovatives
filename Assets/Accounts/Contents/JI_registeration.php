@@ -259,7 +259,7 @@
       </div>
     </div>
   </div>
-
+  
   <script>
     function toggleRegPassword(fieldId, toggleElement) {
       var pwdInput = document.getElementById(fieldId);
@@ -272,5 +272,27 @@
         toggleIcon.textContent = "visibility";
       }
     }
+  const form = document.querySelector('.register-right form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    
+    fetch('../Processors/register-endpoint.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      showToast(data.message, data.status);
+      if(data.status === 'success') {
+        form.reset();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showToast('An unexpected error occurred. Please try again.', 'error');
+    });
+  });
   </script>
 </body>

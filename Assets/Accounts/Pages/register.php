@@ -25,5 +25,7 @@
 <body>
     <?php include '../../Resources/nav.php'; ?>
     <?php include '../Contents/JI_registeration.php'; ?>
+
+    <script src="../../Resources/toaster.js"></script>
 </body>
 </html>
