@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+    header("Location: https://juitinitiatives.online/dashboard");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +32,7 @@
 <body>
     <?php include '../../Resources/nav.php'; ?>
     <?php include '../Contents/JI_login.php'; ?>
-    <script src="../../Resources/toaster.js"></script>
+    <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 
 </body>
 </html>

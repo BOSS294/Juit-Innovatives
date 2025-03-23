@@ -161,17 +161,16 @@
         <span class="welcome">Welcome</span> <span class="back">Back</span>
       </h2>
       <form>
-        <label for="email">Email ID</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        
-        <label for="password">Password</label>
-        <div class="password-container">
-          <input type="password" id="password" placeholder="Enter your password" required>
-          <span class="toggle-password" onclick="togglePassword()">
-            <i class="material-icons">visibility</i>
-          </span>
-        </div>
-        
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <span class="toggle-password" onclick="togglePassword()">
+          <i class="material-icons">visibility</i>
+        </span>
+      </div>
         <button type="submit">Login</button>
       </form>
       <div class="login-redirect">
@@ -199,7 +198,7 @@
     
     const formData = new FormData(this);
     
-    fetch('../Processors/login-endpoint.php', {
+    fetch('https://juitinitiatives.online/Assets/Accounts/Processors/login-endpoint.php', {
       method: 'POST',
       body: formData
     })
@@ -207,7 +206,7 @@
     .then(data => {
       showToast(data.message, data.status);
       if (data.status === 'success') {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'https://juitinitiatives.online/dashboard';
       }
     })
     .catch(error => {

@@ -61,6 +61,7 @@
     <?php include 'Assets/Resources/nav.php'; ?>
     <?php include 'Assets/Website/Contents/Index/hero.php'; ?>
     <?php include 'Assets/Website/Contents/Index/donation_types.php'; ?>
+    <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 
 </body>
 </html>

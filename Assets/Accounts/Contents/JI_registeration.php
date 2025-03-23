@@ -202,33 +202,32 @@
         <span class="create">Create</span> <span class="account">Account</span>
       </h2>
       <form>
-
         <div class="row">
           <div class="field">
             <label for="firstname">First Name</label>
-            <input type="text" id="firstname" placeholder="John" required>
+            <input type="text" id="firstname" name="firstname" placeholder="John" required>
           </div>
           <div class="field">
             <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" placeholder="Doe" required>
+            <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
           </div>
         </div>
 
         <div class="row">
           <div class="field">
             <label for="phone">Phone Number</label>
-            <input type="text" id="phone" placeholder="+1 234 567 890" required>
+            <input type="text" id="phone" name="phone" placeholder="+1 234 567 890" required>
           </div>
           <div class="field">
             <label for="reg-email">Email ID</label>
-            <input type="email" id="reg-email" placeholder="example@domain.com" required>
+            <input type="email" id="reg-email" name="reg-email" placeholder="example@domain.com" required>
           </div>
         </div>
 
         <div class="row">
           <div class="field" style="flex: 1;">
             <label for="address">Address</label>
-            <input type="text" id="address" placeholder="e.g., 123 Main St, City, Country" required>
+            <input type="text" id="address" name="address" placeholder="e.g., 123 Main St, City, Country" required>
           </div>
         </div>
 
@@ -236,7 +235,7 @@
           <div class="field">
             <label for="reg-password">Password</label>
             <div class="password-container">
-              <input type="password" id="reg-password" placeholder="Enter password" required>
+              <input type="password" id="reg-password" name="reg-password" placeholder="Enter password" required>
               <span class="toggle-password" onclick="toggleRegPassword('reg-password', this)">
                 <i class="material-icons">visibility</i>
               </span>
@@ -245,7 +244,7 @@
           <div class="field">
             <label for="confirm-password">Confirm Password</label>
             <div class="password-container">
-              <input type="password" id="confirm-password" placeholder="Confirm password" required>
+              <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
               <span class="toggle-password" onclick="toggleRegPassword('confirm-password', this)">
                 <i class="material-icons">visibility</i>
               </span>
@@ -254,6 +253,7 @@
         </div>
         <button type="submit">Register</button>
       </form>
+
       <div class="login-redirect">
         Already have an account? <a href="https://juitinitiatives.online/login">Login now</a>
       </div>
@@ -278,7 +278,7 @@
     
     const formData = new FormData(form);
     
-    fetch('../Processors/register-endpoint.php', {
+    fetch('https://juitinitiatives.online/Assets/Accounts/Processors/register-endpoint.php', {
       method: 'POST',
       body: formData
     })
@@ -287,6 +287,8 @@
       showToast(data.message, data.status);
       if(data.status === 'success') {
         form.reset();
+        window.location.href = 'https://juitinitiatives.online/dashboard';
+
       }
     })
     .catch(error => {
