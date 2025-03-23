@@ -1,8 +1,8 @@
 <!--
   Hero Section - Dynamic Content Rotator for Juit Innovatives
 
-  Version: 1.0.0
-  Last Updated: 2025-03-23
+  Version: 1.0.1
+  Last Updated: 2025-03-24
 
   Description:
   This module implements the Hero Section for the Juit Innovatives homepage, where users can donate food, money, or clothes.
@@ -10,7 +10,7 @@
   The content (heading and description) rotates every 5 seconds with smooth fade-in and slide-up animations, giving the section a modern, eye-catching look.
   The design uses "Oswald" for the heading and "Roboto" for the description to deliver a unique premium style.
   The call-to-action button is styled as a white outline capsule button that stands out against the dark background.
-  
+  Responsive to mobile devices
 
   The heroContent array holds the dynamic content objects. Each object has 'heading' and 'description' properties.
 -->
@@ -71,6 +71,28 @@
     .animate {
       transform: translateY(30px);
     }
+    @media (max-width: 768px) {
+      .hero-section {
+        width:85%;
+        padding: 80px 20px;
+        margin: 80px auto;
+        border-radius: 50px;
+        box-shadow: 0 8px 20px rgba(23, 23, 23, 0.8);
+      }
+      .hero-heading {
+        font-size: 2.5rem;
+        margin-top: 0;
+      }
+      .hero-description {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+      .hero-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+
   </style>
 </head>
 <body>
