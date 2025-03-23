@@ -60,6 +60,7 @@
 <body>
     <?php include 'Assets/Resources/nav.php'; ?>
     <?php include 'Assets/Website/Contents/Index/hero.php'; ?>
+    <?php include 'Assets/Website/Contents/Index/donation_types.php'; ?>
 
 </body>
 </html>
