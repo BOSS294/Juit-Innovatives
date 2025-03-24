@@ -94,81 +94,56 @@
   </style>
 </head>
 <body>
-  <div class="why-donate">
-    <h1>Why Donate with Us?</h1>
-    <p class="description">
-      At Juit Innovatives, we believe in creating lasting change through transparent charity.
-      Here are eight compelling reasons why your donation matters and how it makes a difference.
-    </p>
-    <div class="reason-cards">
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon material-icons">volunteer_activism</div>
-        <div class="title">Empower Communities</div>
-        <div class="content">
-          Your donations empower local communities by providing essential resources, fostering independence, and uplifting lives.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon material-icons">verified_user</div>
-        <div class="title">Transparency & Trust</div>
-        <div class="content">
-          Every donation is tracked openly, ensuring full accountability and building trust with our donors.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon material-icons">accessibility_new</div>
-        <div class="title">Inclusive Impact</div>
-        <div class="content">
-          We reach the most vulnerable by directing resources where they are needed most, making a tangible impact.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="icon material-icons">eco</div>
-        <div class="title">Sustainable Growth</div>
-        <div class="content">
-          Donations contribute to long-term sustainable development, enabling community programs to flourish.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="icon material-icons">trending_up</div>
-        <div class="title">Innovative Solutions</div>
-        <div class="content">
-          We leverage cutting-edge technology to streamline donations, ensuring efficient use of resources.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="600">
-        <div class="icon material-icons">emoji_events</div>
-        <div class="title">Rewarding Experience</div>
-        <div class="content">
-          Experience the joy of giving; every contribution builds a better future and brings a smile to someone’s face.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="700">
-        <div class="icon material-icons">people</div>
-        <div class="title">Community Engagement</div>
-        <div class="content">
-          Our platform unites diverse communities, fostering collaboration and support among donors and recipients.
-        </div>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="800">
-        <div class="icon material-icons">speed</div>
-        <div class="title">Efficient Resource Management</div>
-        <div class="content">
-          We ensure every donation is allocated effectively, maximizing the impact of your contribution.
-        </div>
-      </div>
-    </div>
-    <div class="cta-buttons" data-aos="fade-up" data-aos-delay="900">
-      <a href="https://juitinitiatives.online/register">Register Now</a>
-      <a href="https://juitinitiatives.online/login">Login Now</a>
-    </div>
+<div class="why-donate">
+  <h1>Why Donate with Us?</h1>
+  <p class="description">
+    At Juit Innovatives, we believe in creating lasting change through transparent charity.
+    Here are eight compelling reasons why your donation matters and how it makes a difference.
+  </p>
+  <div class="reason-cards">
+    <!-- Reason cards will be populated here -->
   </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-  </script>
+  <div class="cta-buttons">
+    <!-- CTA buttons will be populated here -->
+  </div>
+</div>
+
+<!-- AOS Library JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+
+  fetch('https://juitinitiatives.online/Assets/Website/Processors/fetch_why_donate_data.php')
+    .then(response => response.json())
+    .then(data => {
+      const cardsContainer = document.querySelector('.reason-cards');
+      const ctaContainer = document.querySelector('.cta-buttons');
+      cardsContainer.innerHTML = '';
+      
+      data.cards.forEach(member => {
+        const card = document.createElement('div');
+        card.className = 'reason-card';
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', member.aos_delay);
+        card.innerHTML = `
+          <div class="icon material-icons">${member.icon}</div>
+          <div class="title">${member.title}</div>
+          <div class="content">${member.content}</div>
+        `;
+        cardsContainer.appendChild(card);
+      });
+
+      if(data.cta) {
+        ctaContainer.innerHTML = `
+          <a href="${data.cta.button1_url}">${data.cta.button1_text}</a>
+          <a href="${data.cta.button2_url}">${data.cta.button2_text}</a>
+        `;
+      }
+      AOS.refresh(); 
+    })
+    .catch(error => console.error('Error fetching why donate data:', error));
+</script>
 </body>
