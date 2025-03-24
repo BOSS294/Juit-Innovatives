@@ -63,6 +63,7 @@
     <?php include 'Assets/Website/Contents/Index/donation_types.php'; ?>
     <?php include 'Assets/Website/Contents/Index/why-donate.php'; ?>
     <?php include 'Assets/Website/Contents/Index/faqs.php'; ?>
+    <?php include 'Assets/Website/Contents/Index/contact-section.php'; ?>
 
     <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 
