@@ -244,12 +244,12 @@
       .then(response => response.json())
       .then(result => {
         if(result.success) {
-          alert('Message sent successfully! Reference ID: ' + result.msgid);
+          showToast('Message sent successfully! Reference ID: ' + result.msgid,'success');
           form.reset();
           // Reset the character counter for the message textarea
           document.getElementById('charCounter').textContent = '0/500';
         } else {
-          alert('Error sending message: ' + result.error);
+          showToast('Error sending message: ' + result.error,'error');
         }
       })
       .catch(error => console.error('Error sending message:', error));
