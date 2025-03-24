@@ -14,7 +14,7 @@
  */
 
 header('Content-Type: application/json');
-require_once '../../Connectors/main.php'; // Adjust the path as needed
+require_once '../../Connectors/main.php';
 
 try {
     $db = new Database();
