@@ -266,41 +266,53 @@
   </div>
 
   <script>
-    fetch('https://juitinitiatives.online/Assets/Website/Processors/fetch_faqs.php')
-     .then(response => response.json())
-     .then(data => {
-       const container = document.querySelector('.faqs-container');
-       container.innerHTML = '';
-       data.forEach((faq, index) => {
-         const card = document.createElement('div');
-         card.className = 'faq-card';
-         card.setAttribute('data-aos', 'fade-up');
-         card.setAttribute('data-aos-delay', (100 * (index + 1)).toString());
-         card.innerHTML = `
-           <span class="faq-question">${faq.question}</span>
-           <i class="faq-icon fa-solid fa-plus"></i>
-           <div class="faq-answer">${faq.answer}</div>
-         `;
-         container.appendChild(card);
-       });
-       if (typeof AOS !== 'undefined') {
-         AOS.refresh();
-       }
+  fetch('https://juitinitiatives.online/Assets/Website/Processors/fetch_faqs.php')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.querySelector('.faqs-container');
+      container.innerHTML = '';
+      data.forEach((faq, index) => {
+        const card = document.createElement('div');
+        card.className = 'faq-card';
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', (100 * (index + 1)).toString());
+        card.innerHTML = `
+          <span class="faq-question">${faq.question}</span>
+          <i class="faq-icon fa-solid fa-plus"></i>
+          <div class="faq-answer">${faq.answer}</div>
+        `;
+        card.addEventListener('click', () => toggleFaq(card));
+        container.appendChild(card);
+      });
+
+      const firstCard = container.querySelector('.faq-card');
+      if (firstCard) {
+        firstCard.classList.add('active');
+        const answer = firstCard.querySelector('.faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
     })
     .catch(error => console.error('Error fetching FAQs:', error));
 
-    function toggleFaq(element) {
-      const isActive = element.classList.contains('active');
-      const allCards = document.querySelectorAll('.faq-card');
-      allCards.forEach(card => {
-        card.classList.remove('active');
-        card.querySelector('.faq-answer').style.maxHeight = null;
-      });
-      if (!isActive) {
-        element.classList.add('active');
-        const answer = element.querySelector('.faq-answer');
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
+  function toggleFaq(element) {
+    const isActive = element.classList.contains('active');
+    const allCards = document.querySelectorAll('.faq-card');
+        allCards.forEach(card => {
+      card.classList.remove('active');
+      const answer = card.querySelector('.faq-answer');
+      answer.style.maxHeight = null;
+    });
+
+    if (!isActive) {
+      element.classList.add('active');
+      const answer = element.querySelector('.faq-answer');
+      answer.style.maxHeight = answer.scrollHeight + "px";
     }
-  </script>
+  }
+</script>
+
 </body>
