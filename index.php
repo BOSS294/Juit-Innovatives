@@ -11,15 +11,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Juit Innovatives - Donate & Support Charity">
     <meta property="og:description" content="Join Juit Innovatives to donate food, money, and clothes to local charities. Our transparent platform ensures every donation makes a difference.">
-    <meta property="og:image" content="https://yourwebsite.com/path-to-home-image.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/home">
+    <meta property="og:image" content="https://juitinitiatives.online/path-to-home-image.jpg">
+    <meta property="og:url" content="https://juitinitiatives.online">
     <meta property="og:type" content="website">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Juit Innovatives - Donate & Support Charity">
     <meta name="twitter:description" content="Make a difference with Juit Innovatives. Donate food, money, and clothes to local charities and support communities in need.">
-    <meta name="twitter:image" content="https://yourwebsite.com/path-to-home-image.jpg">
+    <meta name="twitter:image" content="https://juitinitiatives.online/path-to-home-image.jpg">
 
     <!-- Schema.org Structured Data for WebSite -->
     <script type="application/ld+json">
@@ -27,10 +27,10 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Juit Innovatives",
-    "url": "https://yourwebsite.com",
+    "url": "https://juitinitiatives.online",
     "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://yourwebsite.com/search?query={search_term_string}",
+        "target": "https://juitinitiatives.online/search?query={search_term_string}",
         "query-input": "required name=search_term_string"
     }
     }
@@ -41,8 +41,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Juit Innovatives",
-    "url": "https://yourwebsite.com",
-    "logo": "https://yourwebsite.com/path-to-logo.png",
+    "url": "https://juitinitiatives.online",
+    "logo": "https://juitinitiatives.online/path-to-logo.png",
     "sameAs": [
         "https://www.facebook.com/yourpage",
         "https://www.twitter.com/yourprofile",
