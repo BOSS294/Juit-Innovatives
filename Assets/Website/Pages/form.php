@@ -64,6 +64,8 @@ session_start();
 <body>
     <?php include '../../Resources/nav.php'; ?>
     <?php include '../../Resources/under-dev.php'; ?>
+    <?php include '../../Resources/footer.php'; ?>
+
     <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 
 </body>

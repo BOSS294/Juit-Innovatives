@@ -32,6 +32,7 @@ if (isset($_SESSION['user'])) {
 <body>
     <?php include '../../Resources/nav.php'; ?>
     <?php include '../Contents/JI_registeration.php'; ?>
+    <?php include '../../Resources/footer.php'; ?>
 
     <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 </body>
