@@ -1,25 +1,28 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juit Innovatives - Donate & Support Charity</title>
-    <meta name="description" content="Donate food, money, and clothes through Juit Innovatives – a transparent charity platform connecting donors with local charities. Support a better future today!">
-    <meta name="keywords" content="Juit Innovatives, charity, donate, food donation, money donation, clothes donation, transparent charity, support, donation platform">
+    <title>Juit Innovatives - Applications (Under Development)</title>
+    <meta name="description" content="Our Applications page is currently under development at Juit Innovatives. Stay tuned for an innovative interface that will showcase our applications and projects in a transparent manner.">
+    <meta name="keywords" content="Juit Innovatives, applications, under development, charity, donation, transparent charity, upcoming features, projects">
     <meta name="author" content="Juit Innovatives Team">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Juit Innovatives - Donate & Support Charity">
-    <meta property="og:description" content="Join Juit Innovatives to donate food, money, and clothes to local charities. Our transparent platform ensures every donation makes a difference.">
-    <meta property="og:image" content="https://juitinitiatives.online/path-to-home-image.jpg">
-    <meta property="og:url" content="https://juitinitiatives.online">
+    <meta property="og:title" content="Juit Innovatives - Applications (Under Development)">
+    <meta property="og:description" content="Our Applications page is under development. Soon you'll see our innovative projects and applications that drive transparency in charity.">
+    <meta property="og:image" content="https://juitinitiatives.online/path-to-applications-underdev-image.jpg">
+    <meta property="og:url" content="https://juitinitiatives.online/application">
     <meta property="og:type" content="website">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Juit Innovatives - Donate & Support Charity">
-    <meta name="twitter:description" content="Make a difference with Juit Innovatives. Donate food, money, and clothes to local charities and support communities in need.">
-    <meta name="twitter:image" content="https://juitinitiatives.online/path-to-home-image.jpg">
+    <meta name="twitter:title" content="Juit Innovatives - Applications (Under Development)">
+    <meta name="twitter:description" content="Our Applications page is coming soon! Stay tuned for a dynamic showcase of our innovative projects on our transparent charity platform.">
+    <meta name="twitter:image" content="https://juitinitiatives.online/path-to-applications-underdev-image.jpg">
 
     <!-- Schema.org Structured Data for WebSite -->
     <script type="application/ld+json">
@@ -35,6 +38,7 @@
     }
     }
     </script>
+
     <!-- Schema.org Structured Data for Organization -->
     <script type="application/ld+json">
     {
@@ -58,11 +62,8 @@
 
 </head>
 <body>
-    <?php include 'Assets/Resources/nav.php'; ?>
-    <?php include 'Assets/Website/Contents/Index/hero.php'; ?>
-    <?php include 'Assets/Website/Contents/Index/donation_types.php'; ?>
-    <?php include 'Assets/Website/Contents/Index/why-donate.php'; ?>
-
+    <?php include '../../Resources/nav.php'; ?>
+    <?php include '../../Resources/under-dev.php'; ?>
     <script src="https://juitinitiatives.online/Assets/Resources/toaster.js"></script>
 
 </body>

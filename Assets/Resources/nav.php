@@ -240,6 +240,27 @@ session_start();
     @media (min-width: 769px) {
       .bottom-nav { display: none; }
     }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4caf50;
+      border-radius: 10px;
+      border: 2px solid #1a1a1a;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #66bb6a;
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #4caf50 #1a1a1a;
+    }
+
   </style>
 </head>
 <body>
@@ -258,7 +279,7 @@ session_start();
       </div>
       <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
       <?php if (isset($_SESSION['user'])) { ?>
-        <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">Dashboard</a>
+        <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
 
       <?php } else { ?>
         <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
@@ -280,7 +301,7 @@ session_start();
     <a href="https://juitinitiatives.online/form" class="nav-link" data-page="form">FORM</a>
     <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
     <?php if (isset($_SESSION['user'])) { ?>
-      <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">Dashboard</a>
+      <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
 
     <?php } else { ?>
       <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
