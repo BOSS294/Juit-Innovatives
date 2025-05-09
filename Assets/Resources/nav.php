@@ -124,11 +124,6 @@ session_start();
       transform: translateY(10px);
       opacity: 0;
     }
-    .dropdown:hover .dropdown-content {
-      display: block;
-      transform: translateY(0);
-      opacity: 1;
-    }
     .dropdown-content a {
       display: block;
       padding: 0.5rem;
@@ -280,7 +275,6 @@ session_start();
       <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
       <?php if (isset($_SESSION['user'])) { ?>
         <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
-
       <?php } else { ?>
         <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
       <?php } ?>
@@ -329,6 +323,27 @@ session_start();
     const mobileDropdown = document.getElementById('mobileDropdown');
     topHamburger.addEventListener('click', function() {
       mobileDropdown.style.display = (window.getComputedStyle(mobileDropdown).display === 'none') ? 'block' : 'none';
+    });
+    
+    // Toggle "OTHERS" dropdown on click
+    const othersLink = document.querySelector('.dropdown > .nav-link[data-page="others"]');
+    const othersDropdown = othersLink.nextElementSibling;
+    
+    othersLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (othersDropdown.style.display === 'block') {
+        othersDropdown.style.opacity = 0;
+        othersDropdown.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          othersDropdown.style.display = 'none';
+        }, 300);
+      } else {
+        othersDropdown.style.display = 'block';
+        // Force reflow for transition
+        void othersDropdown.offsetWidth;
+        othersDropdown.style.opacity = 1;
+        othersDropdown.style.transform = 'translateY(0)';
+      }
     });
   </script>
 </body>
