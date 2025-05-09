@@ -144,10 +144,7 @@
       <ul class="emails">
           <!-- Emails will be populated here -->
       </ul>
-      <h3>Our Social Media</h3>
-      <div class="social-icons">
-          <!-- Social media icons will be populated here -->
-      </div>
+
     </div>
     <div class="contact-right">
       <h2>Send Us A Message</h2>
@@ -195,11 +192,9 @@
       .then(data => {
         const phoneList = document.querySelector('.contact-left ul.phones');
         const emailList = document.querySelector('.contact-left ul.emails');
-        const socialContainer = document.querySelector('.contact-left .social-icons');
   
         if(phoneList) phoneList.innerHTML = '';
         if(emailList) emailList.innerHTML = '';
-        if(socialContainer) socialContainer.innerHTML = '';
   
         data.phones.forEach(phone => {
           const li = document.createElement('li');
@@ -213,12 +208,7 @@
           emailList.appendChild(li);
         });
   
-        data.socials.forEach(social => {
-          const div = document.createElement('div');
-          div.className = 'social-icon';
-          div.innerHTML = `<i class="${social.icon}"></i>`;
-          socialContainer.appendChild(div);
-        });
+
       })
       .catch(error => console.error('Error fetching contact info:', error));
   
