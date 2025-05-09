@@ -330,190 +330,32 @@
       </div>
     </div>
   </div>
-  <div id="donationModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modalTitle">Donation</h3>
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-      </div>
-      <div class="modal-body" id="modalBody">
-      </div>
-      <div class="modal-footer">
-        <button onclick="submitDonation()">Donate</button>
-        <button onclick="closeModal()">Cancel</button>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    const donationTemplates = {
-      food: `
-        <div class="input-group">
-          <label for="food-donation-item"><i class="material-icons">restaurant</i> What do you want to donate?</label>
-          <input type="text" id="food-donation-item" placeholder="e.g., Rice, Vegetables">
-        </div>
-        <div class="input-group">
-          <label for="food-donation-feed"><i class="material-icons">people</i> How many persons do you want to feed?</label>
-          <input type="text" id="food-donation-feed" placeholder="e.g., 50">
-        </div>
-        <div class="input-group">
-          <label for="food-donation-notes"><i class="material-icons">notes</i> Extra Notes (0/500)</label>
-          <textarea id="food-donation-notes" placeholder="Any additional details..."></textarea>
-        </div>
-      `,
-      money: `
-        <div class="input-group">
-          <label for="money-donation-amount"><i class="material-icons">attach_money</i> Amount in INR</label>
-          <input type="text" id="money-donation-amount" placeholder="e.g., 500">
-        </div>
-        <div class="input-group">
-          <label> Payment Method</label>
-          <div style="display: flex; gap: 10px;">
-            <button type="button" class="payment-tab" data-method="debit">Debit Card</button>
-            <button type="button" class="payment-tab" data-method="credit">Credit Card</button>
-            <button type="button" class="payment-tab" data-method="upi">UPI</button>
-          </div>
-        </div>
-        <div id="payment-details">
-          <div class="payment-form" data-method="debit">
-            <div class="input-group">
-              <label for="debit-card-number"><i class="material-icons">credit_card</i> Card Number</label>
-              <input type="text" id="debit-card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-            </div>
-            <div class="input-group">
-              <label for="debit-expiry"><i class="material-icons">date_range</i> Expiry Date</label>
-              <input type="text" id="debit-expiry" placeholder="MM/YY">
-            </div>
-            <div class="input-group">
-              <label for="debit-cvv"><i class="material-icons">lock</i> CVV</label>
-              <input type="text" id="debit-cvv" placeholder="XXX">
-            </div>
-          </div>
-          <div class="payment-form" data-method="credit" style="display: none;">
-            <div class="input-group">
-              <label for="credit-card-number"><i class="material-icons">credit_card</i> Card Number</label>
-              <input type="text" id="credit-card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-            </div>
-            <div class="input-group">
-              <label for="credit-expiry"><i class="material-icons">date_range</i> Expiry Date</label>
-              <input type="text" id="credit-expiry" placeholder="MM/YY">
-            </div>
-            <div class="input-group">
-              <label for="credit-cvv"><i class="material-icons">lock</i> CVV</label>
-              <input type="text" id="credit-cvv" placeholder="XXX">
-            </div>
-          </div>
-          <div class="payment-form" data-method="upi" style="display: none;">
-            <div style="display: flex; gap: 20px;">
-              <div style="flex: 1;">
-                <img src="https://juitinitiatives.online/Images/QR_UPI_METHOD.jpg" alt="QR Code" style="width: 100%;">
-              </div>
-              <div style="flex: 1;">
-                <div class="input-group">
-                  <label for="upi-transaction-id"><i class="material-icons">qr_code</i> Transaction ID</label>
-                  <input type="text" id="upi-transaction-id" placeholder="Enter Transaction ID">
-                </div>
-                <div class="input-group">
-                  <label for="upi-amount"><i class="material-icons">attach_money</i> Transacted Amount</label>
-                  <input type="text" id="upi-amount" placeholder="e.g., 500">
-                </div>
-                <div class="input-group">
-                  <label for="upi-date"><i class="material-icons">date_range</i> Date & Time</label>
-                  <input type="text" id="upi-date" placeholder="YYYY-MM-DD HH:MM">
-                </div>
-                <div class="input-group">
-                  <label for="upi-app"><i class="material-icons">apps</i> UPI App Used</label>
-                  <select id="upi-app">
-                    <option value="Google Pay">Google Pay</option>
-                    <option value="PhonePe">PhonePe</option>
-                    <option value="Paytm">Paytm</option>
-                    <option value="BharatPe">BharatPe</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `,
-      cloth: `
-        <div class="input-group">
-          <label for="cloth-quantity"><i class="material-icons">checkroom</i> How many clothes?</label>
-          <input type="text" id="cloth-quantity" placeholder="e.g., 10" required>
-        </div>
-        <div class="input-group">
-          <label for="cloth-type"><i class="material-icons">category</i> Type of Clothes</label>
-          <select id="cloth-type">
-            <option value="new">I want to donate new clothes</option>
-            <option value="old">I want to donate old clothes</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="cloth-notes"><i class="material-icons">notes</i> Extra Notes (0/500)</label>
-          <textarea id="cloth-notes" placeholder="Any additional details..."></textarea>
-        </div>
-      `
-    };
+<script>
 
-    function openModal(type) {
-      const modal = document.getElementById('donationModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalBody = document.getElementById('modalBody');
-
-      switch(type) {
-        case 'food':
-          modalTitle.textContent = "Food Donation";
-          modalBody.innerHTML = donationTemplates.food;
-          break;
-        case 'money':
-          modalTitle.textContent = "Money Donation";
-          modalBody.innerHTML = donationTemplates.money;
-          initializePaymentTabs();
-          break;
-        case 'cloth':
-          modalTitle.textContent = "Cloth Donation";
-          modalBody.innerHTML = donationTemplates.cloth;
-          break;
-        default:
-          modalTitle.textContent = "Donation";
-          modalBody.innerHTML = "";
-          break;
+  document.querySelectorAll('.donation-card .donate-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.closest('.donation-card').getAttribute('data-type');
+      if (type === 'food') {
+        window.location.href = "donate-food.php";
+      } else if (type === 'money') {
+        window.location.href = "donate_money.php";
+      } else if (type === 'cloth') {
+        window.location.href = "donate_cloth.php";
       }
-      modal.style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById('donationModal').style.display = "none";
-    }
-
-    document.querySelectorAll('.donation-card .donate-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const type = this.parentElement.parentElement.getAttribute('data-type');
-        openModal(type);
-      });
     });
+  });
 
-    function initializePaymentTabs() {
-      const tabs = document.querySelectorAll('.payment-tab');
-      const paymentForms = document.querySelectorAll('.payment-form');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const method = this.getAttribute('data-method');
-          tabs.forEach(t => t.style.background = 'transparent');
-          this.style.background = 'rgba(255,255,255,0.2)';
-          paymentForms.forEach(form => {
-            if(form.getAttribute('data-method') === method) {
-              form.style.display = 'block';
-            } else {
-              form.style.display = 'none';
-            }
-          });
-        });
-      });
-      document.querySelector('.payment-tab[data-method="debit"]').click();
-    }
-
-    function submitDonation() {
-      showToast("Donation submitted successfully.", "success");
-      closeModal();
-    }
-  </script>
+  document.querySelectorAll('.donation-card .learn-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.closest('.donation-card').getAttribute('data-type');
+      if (type === 'food') {
+        window.location.href = "learn_food.php";
+      } else if (type === 'money') {
+        window.location.href = "learn_money.php";
+      } else if (type === 'cloth') {
+        window.location.href = "learn_cloth.php";
+      }
+    });
+  });
+</script>
