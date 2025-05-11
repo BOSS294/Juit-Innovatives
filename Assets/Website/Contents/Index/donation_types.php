@@ -337,11 +337,11 @@
     btn.addEventListener('click', function() {
       const type = this.closest('.donation-card').getAttribute('data-type');
       if (type === 'food') {
-        window.location.href = "donate-food.php";
+        window.location.href = "donate-food";
       } else if (type === 'money') {
-        window.location.href = "donate_money.php";
+        window.location.href = "donate_money";
       } else if (type === 'cloth') {
-        window.location.href = "donate_cloth.php";
+        window.location.href = "donate_cloth";
       }
     });
   });
@@ -350,11 +350,11 @@
     btn.addEventListener('click', function() {
       const type = this.closest('.donation-card').getAttribute('data-type');
       if (type === 'food') {
-        window.location.href = "learn_food.php";
+        window.location.href = "learn_food";
       } else if (type === 'money') {
-        window.location.href = "learn_money.php";
+        window.location.href = "learn_money";
       } else if (type === 'cloth') {
-        window.location.href = "learn_cloth.php";
+        window.location.href = "learn_cloth";
       }
     });
   });
