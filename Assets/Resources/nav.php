@@ -272,7 +272,7 @@ session_start();
           <a href="https://juitinitiatives.online/application" class="nav-link" data-page="application">Application</a>
         </div>
       </div>
-      <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
+      <a href="https://juitinitiatives.online/credits" class="nav-link" data-page="about">ABOUT US</a>
       <?php if (isset($_SESSION['user'])) { ?>
         <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
       <?php } else { ?>
