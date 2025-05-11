@@ -1,33 +1,9 @@
 <?php
 session_start();
 ?>
-<!--
-  Adaptive Navigation Bar for Juit Innovatives (Logged-in Variation)
-
-  Version: 1.0.2
-  Last Updated: 2025-03-23
-
-  Description:
-  This module implements an adaptive, animated navigation bar for Juit Innovatives.
-  On desktop, the nav bar displays the logo (with a shining effect) on the left and nav links on the right.
-  The nav links include: HOME, FORM, ABOUT US, LOGIN (or user icon if logged in), and an "OTHERS" dropdown containing:
-    - Support
-    - Credits
-    - Application
-  On mobile devices, there are two nav bars:
-    - A top nav bar with a smaller logo on the left and a hamburger menu on the right that toggles a dropdown containing extra nav links.
-    - A bottom nav bar displaying: HOME, FORM, ABOUT US, and LOGIN (or the user icon if logged in) with active background highlighting.
-  The user icon (profile picture) is shown if the user is logged in (session active) and does not affect the alignment of other links.
-  The user icon does not receive active link styling in the bottom nav bar.
-  
-  Usage:
-  1. Include the provided Google Fonts and Material Icons links in the <head>.
-  2. Place the markup below within the <body>.
-  3. The PHP conditionals check for a logged-in user (via $_SESSION['user']) and display the user icon instead of the LOGIN link.
-  4. The CSS and JavaScript handle adaptive behavior, animations, and active state tracking.
--->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
@@ -85,6 +61,7 @@ session_start();
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
     .nav-link {
       text-decoration: none;
@@ -174,54 +151,98 @@ session_start();
       padding: 0.5rem 0;
       z-index: 1000;
     }
-    .bottom-nav a {
+    /* Bottom nav items: icons on top and text beneath */
+    .bottom-nav-item {
       text-decoration: none;
       color: #ccc;
-      font-size: 1rem;
+      font-size: 0.8rem;
       font-family: 'Lato', sans-serif;
-      padding: 5px 10px;
-      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: color 0.3s;
+    }
+    .bottom-nav-item i.material-icons {
+      font-size: 1.8rem;
+    }
+    .bottom-nav-item:hover, .bottom-nav-item.active {
+      color: #fff;
+    }
+    /* For profile item in bottom nav */
+    .bottom-nav-item.profile-item {
+      gap: 5px;
+    }
+    .profile-pic {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ff9800;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      animation: pulse 1.5s infinite;
+    }
+    /* Increase user menu width */
+    .user-menu {
+      width: 180px;
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      background-color: rgba(20,20,20,0.95);
+      border: 1px solid #333;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      padding: 0.9rem 0;
+      z-index: 1100;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .user-menu.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .user-menu-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #ccc;
       transition: background 0.3s ease;
     }
-    .bottom-nav a:hover, .bottom-nav a.active {
-      color: #fff;
+    .user-menu-item i.material-icons {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .user-menu-item:hover {
       background-color: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .user-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
     }
     .user-icon {
-      display: inline-block;
-      width: 25px;
-      height: 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ff9800;
       border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid #4caf50;
-      box-shadow: 0 0 8px #4caf50;
-      transition: transform 0.3s ease;
+      font-size: 1rem;
+      animation: pulse 1.5s infinite;
     }
-    .user-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .user-icon:hover {
-      transform: scale(1.1);
-    }
-    .bottom-nav .user-icon {
-      display: inline-block;
-      width: 25px;
-      height: 23px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid #4caf50;
-      box-shadow: 0 0 8px #4caf50;
-      transition: transform 0.3s ease;
-    }
-    .bottom-nav .user-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .bottom-nav .user-icon:hover {
-      transform: scale(1.1);
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,152,0,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(255,152,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,152,0,0); }
     }
     @media (max-width: 768px) {
       nav { top: 10px; padding: 0.5rem 1rem; }
@@ -230,7 +251,8 @@ session_start();
       .mobile-dropdown { display: none; }
       .bottom-nav { display: flex; }
       .nav-logo { font-size: 1.4rem; }
-      
+      /* On mobile, hide user dropdown in top nav and use bottom nav profile item */
+      .user-dropdown { display: none; }
     }
     @media (min-width: 769px) {
       .bottom-nav { display: none; }
@@ -255,7 +277,6 @@ session_start();
       scrollbar-width: thin;
       scrollbar-color: #4caf50 #1a1a1a;
     }
-
   </style>
 </head>
 <body>
@@ -273,8 +294,19 @@ session_start();
         </div>
       </div>
       <a href="https://juitinitiatives.online/credits" class="nav-link" data-page="about">ABOUT US</a>
-      <?php if (isset($_SESSION['user'])) { ?>
-        <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
+      <?php if (isset($_SESSION['user'])) {
+            $first = $_SESSION['user']['firstName'] ?? 'John';
+            $last  = $_SESSION['user']['lastName'] ?? 'Doe';
+            $initials = strtoupper(substr($first, 0, 1) . substr($last, 0, 1));
+      ?>
+        <div class="user-dropdown">
+          <div class="user-icon" id="userIcon"><?php echo $initials; ?></div>
+          <div class="user-menu" id="userMenu">
+            <a href="https://juitinitiatives.online/dashboard" class="user-menu-item"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+            <a href="https://juitinitiatives.online/my-donation" class="user-menu-item"><i class="material-icons">card_giftcard</i><span>My Donation</span></a>
+            <a href="https://juitinitiatives.online/logout" class="user-menu-item"><i class="material-icons">logout</i><span>Logout</span></a>
+          </div>
+        </div>
       <?php } else { ?>
         <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
       <?php } ?>
@@ -283,7 +315,6 @@ session_start();
       <i class="material-icons">menu</i>
     </div>
     <div class="mobile-dropdown" id="mobileDropdown">
-
       <a href="https://juitinitiatives.online/support" class="nav-link" data-page="support">Support</a>
       <a href="https://juitinitiatives.online/credits" class="nav-link" data-page="credits">Credits</a>
       <a href="https://juitinitiatives.online/application" class="nav-link" data-page="application">Application</a>
@@ -291,15 +322,29 @@ session_start();
   </nav>
 
   <div class="bottom-nav">
-    <a href="https://juitinitiatives.online" class="nav-link" data-page="home">HOME</a>
-    <a href="https://juitinitiatives.online/form" class="nav-link" data-page="form">FORM</a>
-    <a href="https://juitinitiatives.online/about-us" class="nav-link" data-page="about">ABOUT US</a>
-    <?php if (isset($_SESSION['user'])) { ?>
-      <a href="https://juitinitiatives.online/dashboard" class="nav-link" data-page="dashboard">DASHBOARD</a>
-
-    <?php } else { ?>
-      <a href="https://juitinitiatives.online/login" class="nav-link" data-page="login">LOGIN</a>
-    <?php } ?>
+    <a href="https://juitinitiatives.online" class="bottom-nav-item" data-page="home">
+      <i class="material-icons">home</i>
+      <span>HOME</span>
+    </a>
+    <a href="https://juitinitiatives.online/form" class="bottom-nav-item" data-page="form">
+      <i class="material-icons">description</i>
+      <span>FORM</span>
+    </a>
+    <a href="https://juitinitiatives.online/about-us" class="bottom-nav-item" data-page="about">
+      <i class="material-icons">info</i>
+      <span>ABOUT</span>
+    </a>
+    <?php if (isset($_SESSION['user'])): ?>
+      <a href="https://juitinitiatives.online/dashboard" class="bottom-nav-item profile-item">
+        <div class="profile-pic"><?php echo $initials; ?></div>
+        <span><?php echo $first; ?></span>
+      </a>
+    <?php else: ?>
+      <a href="https://juitinitiatives.online/login" class="bottom-nav-item" data-page="login">
+        <i class="material-icons">login</i>
+        <span>LOGIN</span>
+      </a>
+    <?php endif; ?>
   </div>
 
   <script>
@@ -328,7 +373,6 @@ session_start();
     // Toggle "OTHERS" dropdown on click
     const othersLink = document.querySelector('.dropdown > .nav-link[data-page="others"]');
     const othersDropdown = othersLink.nextElementSibling;
-    
     othersLink.addEventListener('click', function(e) {
       e.preventDefault();
       if (othersDropdown.style.display === 'block') {
@@ -339,11 +383,35 @@ session_start();
         }, 300);
       } else {
         othersDropdown.style.display = 'block';
-        // Force reflow for transition
         void othersDropdown.offsetWidth;
         othersDropdown.style.opacity = 1;
         othersDropdown.style.transform = 'translateY(0)';
       }
     });
+    
+    // Toggle user dropdown on click
+    const userIcon = document.getElementById('userIcon');
+    const userMenu = document.getElementById('userMenu');
+    if(userIcon) {
+      userIcon.addEventListener('click', function(e) {
+        e.stopPropagation(); // prevent event bubbling
+        userMenu.classList.toggle('active');
+      });
+    }
+    
+    // Outside click closes any open dropdown (user menu or others dropdown)
+    document.addEventListener('click', function(e) {
+      if(userMenu && !userMenu.contains(e.target) && !userIcon.contains(e.target)) {
+        userMenu.classList.remove('active');
+      }
+      if(othersDropdown && !othersDropdown.contains(e.target) && !othersLink.contains(e.target)) {
+        othersDropdown.style.opacity = 0;
+        othersDropdown.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          othersDropdown.style.display = 'none';
+        }, 300);
+      }
+    });
   </script>
 </body>
+</html>
