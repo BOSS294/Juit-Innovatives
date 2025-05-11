@@ -106,7 +106,7 @@ session_start();
       padding: 0.5rem;
       text-decoration: none;
       color: #ccc;
-      font-size: 0.9rem;
+      font-size: 0.6rem;
       transition: background 0.3s ease;
     }
     .dropdown-content a:hover {
@@ -181,7 +181,7 @@ session_start();
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       animation: pulse 1.5s infinite;
     }
     /* Increase user menu width */
@@ -232,8 +232,8 @@ session_start();
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border: 2px solid #ff9800;
       border-radius: 50%;
       font-size: 1rem;
