@@ -1,8 +1,7 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -414,4 +413,3 @@ session_start();
     });
   </script>
 </body>
-</html>
