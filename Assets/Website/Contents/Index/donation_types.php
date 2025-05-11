@@ -339,9 +339,9 @@
       if (type === 'food') {
         window.location.href = "donate-food";
       } else if (type === 'money') {
-        window.location.href = "donate_money";
+        window.location.href = "donate-money";
       } else if (type === 'cloth') {
-        window.location.href = "donate_cloth";
+        window.location.href = "donate-clothes";
       }
     });
   });
